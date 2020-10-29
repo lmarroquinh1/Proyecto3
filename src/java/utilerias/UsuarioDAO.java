@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package utilerias;
-import modelo.Usuario;
-import modelo.Validar;
+import Modelo.Usuario;
+import Modelo.Validar;
 import utilerias.VariablesGlobales;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,7 +42,6 @@ public class UsuarioDAO implements Validar {
     }
         } 
     catch (SQLException throwables) {
-            throwables.printStackTrace();
             return 0;
         }
     }

@@ -3,7 +3,7 @@
     Created on : 26/10/2020, 01:06:03 PM
     Author     : Alvarado Montes 
 --%>
-<%@page import="modelo.Empresa"%>
+<%@page import="Modelo.Empresa1"%>
 <%@page import="utilerias.InformacionDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -55,7 +55,7 @@
             }
               else{
                 InformacionDAO informacionDao = new InformacionDAO(); 
-                Empresa empresa = new Empresa(nombre, apellido, direccion, contacto, Integer.parseInt(descuento)); 
+                Empresa1 empresa = new Empresa1(nombre, apellido, direccion, contacto, Integer.parseInt(descuento)); 
                 informacionDao.guardarEmpresa(empresa);
             %>
         

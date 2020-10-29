@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 package Controlador;
-import modelo.Validar;
-import modelo.Usuario;
+import Modelo.Usuario;
 import utilerias.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;

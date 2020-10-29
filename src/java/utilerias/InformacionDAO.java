@@ -12,26 +12,26 @@ package utilerias;
  */
 
 import conexion.ConexionDB;
-import modelo.Individual;
+import Modelo.Individual1;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Empresa;
-import modelo.Producto;
+import Modelo.Empresa1;
+import Modelo.Producto;
 
 public class InformacionDAO {
     
-     public List<Individual> getDBIndividual(){
-        List<Individual> individuales = new ArrayList<Individual>();
+     public List<Individual1> getDBIndividual(){
+        List<Individual1> individuales = new ArrayList<Individual1>();
         try {
             Statement statement = ConexionDB.conn.createStatement();
             String consulta = " SELECT  nombre, apellido, direccion, dpi"+
                               " FROM individuales";
             ResultSet rs = statement.executeQuery(consulta);
             while(rs.next()){
-                individuales.add(new Individual(rs.getString("nombre"), rs.getString("apellido"), rs.getString("direccion"), rs.getString("dpi")));
+                individuales.add(new Individual1(rs.getString("nombre"), rs.getString("apellido"), rs.getString("direccion"), rs.getString("dpi")));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -39,27 +39,35 @@ public class InformacionDAO {
         return individuales;
     }
      
-      public void guardarIndividual(Individual individual){
+     
+            
+            
+     
+     
+      public void guardarIndividual(Individual1 individual){
         try {
             Statement statement = ConexionDB.conn.createStatement();
             String dml = "INSERT INTO individuales(nombre, apellido, direccion, dpi) VALUES("+
-                        individual.getNombre()+ ",'" + individual.getApellido()+ "')" + individual.getDireccion()+ ",´" + individual.getDpi()+ ",´";
+            "'"+individual.getNombre()+"','"+individual.getApellido()+ "','" + individual.getDireccion()+ "','" + individual.getDpi()+"')";
             System.out.println("dml = " + dml);
             statement.executeUpdate(dml);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
     }
+     
       
-    public List<Empresa> getDBEmpresa(){ 
-         List<Empresa> empresas = new ArrayList<Empresa>();
+      
+      
+    public List<Empresa1> getDBEmpresa(){ 
+         List<Empresa1> empresas = new ArrayList<Empresa1>();
          try {
             Statement statement = ConexionDB.conn.createStatement();
             String consulta = " SELECT  nombre, apellido, direccion, contacto, descuento"+
                               " FROM empresas";
             ResultSet rs = statement.executeQuery(consulta);
              while (rs.next()) {
-                 empresas.add(new Empresa(rs.getString("nombre"), rs.getString("apellido"), rs.getString("direccion"), rs.getString("contacto"), rs.getInt("descuento")));
+                 empresas.add(new Empresa1(rs.getString("nombre"), rs.getString("apellido"), rs.getString("direccion"), rs.getString("contacto"), rs.getInt("descuento")));
              }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -67,11 +75,12 @@ public class InformacionDAO {
          return empresas;
     } 
     
-    public void guardarEmpresa(Empresa empresa){
+    public void guardarEmpresa(Empresa1 empresa){
         try {
             Statement statement = ConexionDB.conn.createStatement();
             String dml = "INSERT INTO empresas(nombre, apellido, direccion, contacto, descuento) VALUES("+
-                        empresa.getNombre()+ ",'" + empresa.getApellido()+ "')" + empresa.getDireccion()+ ",´" + empresa.getContacto()+ ",´" + empresa.getDescuento()+ ",´";
+            "'"+empresa.getNombre()+"','"+empresa.getApellido()+"','"+empresa.getDireccion()+"','"+
+                    empresa.getContacto()+"','"+empresa.getDescuento()+"')";
             System.out.println("dml = " + dml);
             statement.executeUpdate(dml);
         } catch (SQLException throwables) {

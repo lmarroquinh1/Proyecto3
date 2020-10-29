@@ -1,4 +1,4 @@
-package modelo;
+package Modelo;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,10 +10,10 @@ package modelo;
  *
  * @author Alvarado Montes
  */
-public class Individual extends Cliente {
+public class Individual1 extends Cliente {
      private String dpi;
 
-    public Individual(String nombre, String apellido, String direccion, String dpi) {
+    public Individual1(String nombre, String apellido, String direccion, String dpi) {
         super(nombre, apellido, direccion);
         this.dpi = dpi;
     }

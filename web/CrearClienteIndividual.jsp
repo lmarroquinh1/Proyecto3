@@ -3,7 +3,7 @@
     Created on : 26/10/2020, 12:07:36 PM
     Author     : Alvarado Montes
 --%>
-<%@page import="modelo.Individual"%>
+<%@page import="Modelo.Individual1"%>
 <%@page import="utilerias.InformacionDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@
             }
               else{
                 InformacionDAO informacionDao = new InformacionDAO(); 
-                Individual individual = new Individual(nombre, apellido, direccion, dpi);
+                Individual1 individual = new Individual1(nombre, apellido, direccion, dpi);
                 informacionDao.guardarIndividual(individual);
             %>
         <div class="alert alert-success" role="alert">
