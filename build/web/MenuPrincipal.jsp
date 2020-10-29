@@ -11,18 +11,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-        <body bgcolor="#893546" text="#FFFFFF"
-	link="#25B01A" vlink="#1A2CB0" alink="#E50A0A">
-        <h1>Menu Principal</h1>
+        <body bgcolor="#161C38" text="#FFFFFF"
+	link="#FFFFFF" vlink="#E50A0A" alink="#E50A0A">
+            <center><h1>SISTEMA DE VENTAS</h1></center>
        
-        <a href="CrearClienteIndividual.jsp">1. Crear cliente individual</a><br>
-        <a href="ListaClienteIndividual.jsp">2. Listar cliente individual</a><br>
-        <a href="CrearClienteEmpresa.jsp">1. Crear cliente empresa</a><br>
-        <a href="ListaClienteEmpresa.jsp">2. Listar cliente empresa</a><br>
-        <a href="CrearProducto.jsp">1. Crear producto </a><br>
-        <a href="ListaProducto.jsp">2. Listar producto</a><br>
-        <a href="CrearOrdenCompra.jsp">1. Crear Orden de compra</a><br>
-        <a href="ListaOrdenCompra.jsp">2. Listar orden de compra</a><br>
+        <center><a href="CrearClienteIndividual.jsp">1. Crear cliente individual</a></center><br>
+        <center><a href="ListaClienteIndividual.jsp">2. Reporte cliente individual</a></center><br>
+        <center><a href="CrearClienteEmpresa.jsp">3. Crear cliente empresa</a></center><br>
+        <center><a href="ListaClienteEmpresa.jsp">4. Reporte cliente empresa</a></center><br>
+        <center><a href="CrearProducto.jsp">5. Crear producto </a></center><br>
+        <center><a href="ListaProducto.jsp">6. Reporte producto</a></center><br>
+        <center><a href="CrearOrdenCompra.jsp">7. Crear Orden de compra</a></center><br>
+        <center><a href="ListaOrdenCompra.jsp">8. Reporte orden de compra</a></center><br>
         
     </body>
 </html>

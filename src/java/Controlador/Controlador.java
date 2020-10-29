@@ -45,9 +45,9 @@ public class Controlador extends HttpServlet {
             Usuario.setPassword(Password);
             Resultado = Usuariodao.validar(Usuario);//si el usuario es correcto el valor de retorno sera 1
             if(Resultado==1){
-                request.getRequestDispatcher("Principal.jsp").forward(request, response);
+                request.getRequestDispatcher("MenuPrincipal.jsp").forward(request, response);
             } else {//si el usuario no es correcto se quedara en la pagina index
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
             }
         }
             

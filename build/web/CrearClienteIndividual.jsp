@@ -3,7 +3,8 @@
     Created on : 26/10/2020, 12:07:36 PM
     Author     : Alvarado Montes
 --%>
-
+<%@page import="modelo.Individual"%>
+<%@page import="utilerias.InformacionDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,34 +16,48 @@
     <body bgcolor="#893546" text="#FFFFFF"
 	link="#25B01A" vlink="#1A2CB0" alink="#E50A0A">
         <h1>Agregar nuevos clientes</h1>
+        <% 
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String direccion = request.getParameter("direccion");
+            String dpi = request.getParameter("dpi");
+            if(nombre==null && apellido==null && direccion==null && dpi==null){
+            
+        %>
         
         <form action="CrearClienteIndividual.jsp" method="POST">
             <div class="form-group">
               <label for="nombre">Nombre: </label>
-              <input type="text" class="form-control" id="codigo" name="nombre" aria-describedby="emailHelp">              
+              <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">              
             </div>            
             <div class="form-group">
               <label for="apellido">Apellido: </label>
-              <input type="text" class="form-control" id="nombre" name="apellido" aria-describedby="emailHelp">
+              <input type="text" class="form-control" id="apellido" name="apellido" aria-describedby="emailHelp">
             </div>
             <div class="form-group">
               <label for="direccion">Dirección: </label>
-              <input type="text" class="form-control" id="nombre" name="direccion" aria-describedby="emailHelp">
+              <input type="text" class="form-control" id="direccion" name="direccion" aria-describedby="emailHelp">
             </div>
              <div class="form-group">
               <label for="dpi">Dpi: </label>
-              <input type="text" class="form-control" id="nombre" name="dpi" aria-describedby="emailHelp">
+              <input type="text" class="form-control" id="dpi" name="dpi" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Agregar</button>
             <button type="submit" class="btn btn-primary">Modificar</button>
-            <button type="submit" class="btn btn-primary">Eliminar</button>
+            <button type="submit" class="btn btn-primary">Borrar</button>
         </form>
-        
-        //alerta alerta
+        <%
+            }
+              else{
+                InformacionDAO informacionDao = new InformacionDAO(); 
+                Individual individual = new Individual(nombre, apellido, direccion, dpi);
+                informacionDao.guardarIndividual(individual);
+            %>
         <div class="alert alert-success" role="alert">
-                El cliente fue agregado correctamente<a href="ListaClienteIndividual.jsp" class="alert-link">Ver Listado de Clientes</a>. 
+                El cliente fue agregado correctamente<a href="ListaClienteIndividual.jsp" class="alert-link">Ver reporte de clientes</a>. 
             </div>
-        
+        <%
+         }%>
          <form action="MenuPrincipal.jsp">
           <button type="submit" class="btn btn-secondary">Regresar Menu</button>
         </form>

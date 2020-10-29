@@ -1,9 +1,9 @@
 <%-- 
-    Document   : CrearClienteIndividual
-    Created on : 26/10/2020, 12:07:36 PM
-    Author     : Alvarado Montes
+    Document   : CrearClienteEmpresa
+    Created on : 26/10/2020, 01:06:03 PM
+    Author     : Alvarado Montes 
 --%>
-<%@page import="modelo.Individual"%>
+<%@page import="modelo.Empresa"%>
 <%@page import="utilerias.InformacionDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,17 +15,18 @@
     </head>
     <body bgcolor="#893546" text="#FFFFFF"
 	link="#25B01A" vlink="#1A2CB0" alink="#E50A0A">
+        
         <h1>Agregar nuevos clientes</h1>
         <% 
-            String nombre = request.getParameter("nombre");
+            String nombre = request.getParameter("nombre"); 
             String apellido = request.getParameter("apellido");
             String direccion = request.getParameter("direccion");
-            String dpi = request.getParameter("dpi");
-            if(nombre==null && apellido==null && direccion==null && dpi==null){
+            String contacto = request.getParameter("contacto");
+            String descuento = request.getParameter("descuento");
+            if(nombre==null && apellido==null && direccion==null && contacto==null && descuento==null){ 
             
         %>
-        
-        <form action="CrearClienteIndividual.jsp" method="POST">
+        <form action="CrearClienteEmpresa.jsp" method="POST">
             <div class="form-group">
               <label for="nombre">Nombre: </label>
               <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">              
@@ -38,23 +39,28 @@
               <label for="direccion">Dirección: </label>
               <input type="text" class="form-control" id="direccion" name="direccion" aria-describedby="emailHelp">
             </div>
-             <div class="form-group">
-              <label for="dpi">Dpi: </label>
-              <input type="text" class="form-control" id="dpi" name="dpi" aria-describedby="emailHelp">
+            <div class="form-group">
+              <label for="contacto">Contacto: </label>
+              <input type="text" class="form-control" id="contacto" name="contacto" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="descuento">Descuento: </label>
+              <input type="text" class="form-control" id="descuento" name="descuento" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Agregar</button>
             <button type="submit" class="btn btn-primary">Modificar</button>
-            <button type="submit" class="btn btn-primary">Borrar</button>
+            <button type="submit" class="btn btn-primary">Eliminar</button>
         </form>
         <%
             }
               else{
                 InformacionDAO informacionDao = new InformacionDAO(); 
-                Individual individual = new Individual(nombre, apellido, direccion, dpi);
-                informacionDao.guardarIndividual(individual);
+                Empresa empresa = new Empresa(nombre, apellido, direccion, contacto, Integer.parseInt(descuento)); 
+                informacionDao.guardarEmpresa(empresa);
             %>
+        
         <div class="alert alert-success" role="alert">
-                El cliente fue agregado correctamente<a href="ListaClienteIndividual.jsp" class="alert-link">Ver reporte de clientes</a>. 
+                El cliente fue agregado correctamente<a href="ListaClienteEmpresa.jsp" class="alert-link">Ver reporte de clientes</a>. 
             </div>
         <%
          }%>
