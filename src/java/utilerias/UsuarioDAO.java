@@ -6,7 +6,7 @@
 package utilerias;
 import Modelo.Usuario;
 import Modelo.Validar;
-import utilerias.VariablesGlobales;
+import conexion.ConexionDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,10 +25,10 @@ public class UsuarioDAO implements Validar {
     @Override
     public int validar(Usuario usuario) {
     try {
-        Statement statement = VariablesGlobales.conn.createStatement();
+        Statement statement = ConexionDB.conn.createStatement();
+        //Statement statement = VariablesGlobales.conn.createStatement();
         System.out.println("-"+usuario.getUsuario()+"-");
         String consulta="Select * from usuarios where nombreusuario='"+usuario.getUsuario()+"' and password='"+usuario.getPassword()+"'";
-        //String consulta="Select * from usuarios where nombreusuario='luis' and password='luis@gmail.com'";
         ResultSet rs = statement.executeQuery(consulta);
     while(rs.next()){
                 //Si hay algun valor que coincida en la base de datos igualar a 1
