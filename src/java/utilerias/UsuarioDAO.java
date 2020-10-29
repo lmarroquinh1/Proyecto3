@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
-import Modelo.Usuario;
-import Modelo.Validar;
-import utils.VariablesGlobales;
+package utilerias;
+import modelo.Usuario;
+import modelo.Validar;
+import utilerias.VariablesGlobales;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;

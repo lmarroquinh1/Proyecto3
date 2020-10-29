@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package Controlador;
-
-import Modelo.Usuario;
-import dao.UsuarioDAO;
+import modelo.Validar;
+import modelo.Usuario;
+import utilerias.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -47,7 +47,7 @@ public class Controlador extends HttpServlet {
             if(Resultado==1){
                 request.getRequestDispatcher("MenuPrincipal.jsp").forward(request, response);
             } else {//si el usuario no es correcto se quedara en la pagina index
-                request.getRequestDispatcher("Login.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
         }
             
