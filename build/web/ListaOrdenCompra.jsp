@@ -5,7 +5,7 @@
 --%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.util.List"%>
-<%@page import="modelo.Orden"%> 
+<%@page import="Modelo.Orden"%> 
 <%@page import="utilerias.InformacionDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,6 +28,7 @@
                 <th scope="col">Estado</th>
                 <th scope="col">Fecha orden</th>
                 <th scope="col">Total</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -47,6 +48,16 @@
                 <td><%=orden.getEstado()%></td>
                 <td><%=new java.util.Date()%></td> 
                 <td><%=orden.getPrecioEnvio()%></td>  
+                
+                <th>
+                    <a href="EliminarDatos.jsp?dpi=<%=orden.getIdCliente()%>&tipoCliente=individual">
+                    <img src="Images/IconoEliminar.jpg" width="30" height="30"/>
+                    </a>||
+                    <a href="EliminarClienteIndividual.jsp?dpi=<%=orden.getIdCliente()%>?tipoCliente="<%="individual"%>>
+                        <img src="Images/IconoEditar.png" width="30" height="30"/>
+                    </a>
+                </th>
+                
               </tr>
               <% 
                }

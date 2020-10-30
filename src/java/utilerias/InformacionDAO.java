@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import Modelo.Empresa1;
+import Modelo.Orden;
 import Modelo.Producto;
 
 public class InformacionDAO {
@@ -35,7 +36,6 @@ public class InformacionDAO {
       * elimina un cliente de tipo individual de la tabla individuales
       * @param individual variable de tipo individual que contiene la informacion a ser ingresada a la base de datos
       */     
-                
       public void eliminarIndividual(String dpi){
         try {
             Statement statement = ConexionDB.conn.createStatement();
@@ -47,6 +47,21 @@ public class InformacionDAO {
         }
     }
     
+      /***
+      * elimina un cliente de tipo empresa de la tabla empresas
+      * @param nombre, empresa  son los parametros a utilizar en la condicion para eliminar
+      */     
+      public void eliminarEmpresa(String nombre, String apellido){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "Delete from empresas where nombre='"+nombre+"' and apellido='"+apellido+"'";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+      
     
     
     /***
@@ -130,4 +145,50 @@ public class InformacionDAO {
             throwables.printStackTrace();
         }
     } 
+  
+  public void eliminarProducto(String codigoProducto){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "Delete from productos where codigo='"+codigoProducto+"'";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+  
+  
+  
+  public List<Orden> getDBOrden(){ 
+         List<Orden> ordenes = new ArrayList<Orden>();
+         try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String consulta = " SELECT  idCliente, idProducto, precioEnvio, tipoEnvio, estado, fechaOrden, total"+
+                              " FROM ordenes";
+            ResultSet rs = statement.executeQuery(consulta);
+             while (rs.next()) {
+                 ordenes.add(new Orden(rs.getInt("idCliente"), rs.getInt("idCliente"), rs.getDouble("precioEnvio"), rs.getString("tipoEnvio"), rs.getString("estado")));
+             }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+         return ordenes;
+    }
+   //Metodo agregar o guardar orden de compra
+    public void guardarOrden(Orden orden){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "INSERT INTO ordenes(idCliente, idProducto, precioEnvio, tipoEnvio, estado, fechaOrden, total) VALUES("+"'"
+                        +orden.getIdCliente()+ "','" + orden.getIdProducto()+ "','" + orden.getPrecioEnvio()+ "','" + orden.getTipoEnvio()+ "','"+orden.getEstado()+"','"+ new java.util.Date()+"','"+orden.getTotal()+"')";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+  
+  
+  
+  
+  
 }

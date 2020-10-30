@@ -24,6 +24,7 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Cantidad</th>
                 <th scope="col">Precio</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <%
@@ -39,6 +40,16 @@
                 <td><%=producto.getNombreProducto()%></td>
                 <td><%=producto.getCantidad()%></td>
                 <td><%=producto.getPrecio()%></td>
+                
+                <th>
+                    <a href="EliminarDatos.jsp?codigoProducto=<%=producto.getCodigo()%>&tipoCliente=producto">
+                    <img src="Images/IconoEliminar.jpg" width="30" height="30"/>
+                    </a>||
+                    <a href="EliminarClienteIndividual.jsp?dpi=<%=producto.getCodigo()%>?tipoCliente="<%="individual"%>>
+                        <img src="Images/IconoEditar.png" width="30" height="30"/>
+                    </a>
+                </th>
+                
               </tr>
               <% 
                }

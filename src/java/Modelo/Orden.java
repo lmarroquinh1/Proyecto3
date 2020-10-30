@@ -19,15 +19,20 @@ public class Orden {
     private String estado;
     private Date fechaOrden;
     private double total;
+    private Producto producto;
 
-    public Orden(int idCliente, int idProducto, double precioEnvio, String tipoEnvio, String estado, Date fechaOrden, double total) {
+    public Orden(Date pfecha){
+        this.fechaOrden=pfecha;
+        this.total=0.0;
+    }
+    
+    public Orden(int idCliente, int idProducto, double precioEnvio, String tipoEnvio, String estado) {
         this.idCliente = idCliente;
         this.idProducto = idProducto;
         this.precioEnvio = precioEnvio;
         this.tipoEnvio = tipoEnvio;
         this.estado = estado;
-        this.fechaOrden = fechaOrden;
-        this.total = total;
+        this.total = 0.0;
     }
     
     
@@ -87,6 +92,13 @@ public class Orden {
     public void setTotal(double total) {
         this.total = total;
     }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
+    }
     
-       
 }

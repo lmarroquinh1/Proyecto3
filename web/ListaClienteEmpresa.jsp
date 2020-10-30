@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
     <tbody>
-        <h1>Reporte de Clientes</h1>
+        <h1>Reporte de Clientes de tipo empresa</h1>
         <table class="table table-striped">
             <thead class="thead-blue">
               <tr>
@@ -41,6 +41,16 @@
                 <td><%=empresa.getDireccion()%></td>
                 <td><%=empresa.getContacto()%></td>
                 <td><%=empresa.getDescuento()%></td>  
+                
+                <th>
+                    <a href="EliminarDatos.jsp?nombre=<%=empresa.getNombre()%>&apellido=<%=empresa.getApellido()%>&tipoCliente=empresa">
+                    <img src="Images/IconoEliminar.jpg" width="30" height="30"/>
+                    </a>||
+                    <a href="EliminarClienteIndividual.jsp?dpi=<%=empresa.getNombre()%>?tipoCliente="<%="individual"%>>
+                        <img src="Images/IconoEditar.png" width="30" height="30"/>
+                    </a>
+                </th>
+                
               </tr>
               <% 
                }
