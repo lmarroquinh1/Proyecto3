@@ -12,6 +12,7 @@ import java.sql.Date;
  * @author Alvarado Montes
  */
 public class Orden {
+    private int idOrden;
     private int idCliente;
     private int idProducto;
     private double precioEnvio;
@@ -26,7 +27,8 @@ public class Orden {
         this.total=0.0;
     }
     
-    public Orden(int idCliente, int idProducto, double precioEnvio, String tipoEnvio, String estado) {
+    public Orden(int idOrden, int idCliente, int idProducto, double precioEnvio, String tipoEnvio, String estado) {
+        this.idOrden = idOrden;
         this.idCliente = idCliente;
         this.idProducto = idProducto;
         this.precioEnvio = precioEnvio;
@@ -34,8 +36,14 @@ public class Orden {
         this.estado = estado;
         this.total = 0.0;
     }
-    
-    
+
+    public int getIdOrden() {
+        return idOrden;
+    }
+
+    public void setIdOrden(int idOrden) {
+        this.idOrden = idOrden;
+    }
 
     public int getIdCliente() {
         return idCliente;

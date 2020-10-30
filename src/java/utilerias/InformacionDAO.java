@@ -163,11 +163,10 @@ public class InformacionDAO {
          List<Orden> ordenes = new ArrayList<Orden>();
          try {
             Statement statement = ConexionDB.conn.createStatement();
-            String consulta = " SELECT  idCliente, idProducto, precioEnvio, tipoEnvio, estado, fechaOrden, total"+
-                              " FROM ordenes";
+            String consulta = " SELECT idorden, idcliente, idproducto, precioenvio, tipoenvio, estado, fechaorden, total FROM ordenes";
             ResultSet rs = statement.executeQuery(consulta);
              while (rs.next()) {
-                 ordenes.add(new Orden(rs.getInt("idCliente"), rs.getInt("idCliente"), rs.getDouble("precioEnvio"), rs.getString("tipoEnvio"), rs.getString("estado")));
+                 ordenes.add(new Orden(rs.getInt("idorden"),rs.getInt("idcliente"), rs.getInt("idproducto"), rs.getDouble("precioenvio"), rs.getString("tipoenvio"), rs.getString("estado")));
              }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -178,8 +177,8 @@ public class InformacionDAO {
     public void guardarOrden(Orden orden){
         try {
             Statement statement = ConexionDB.conn.createStatement();
-            String dml = "INSERT INTO ordenes(idCliente, idProducto, precioEnvio, tipoEnvio, estado, fechaOrden, total) VALUES("+"'"
-                        +orden.getIdCliente()+ "','" + orden.getIdProducto()+ "','" + orden.getPrecioEnvio()+ "','" + orden.getTipoEnvio()+ "','"+orden.getEstado()+"','"+ new java.util.Date()+"','"+orden.getTotal()+"')";
+            String dml = "INSERT INTO ordenes(idorden, idcliente, idproducto, precioenvio, tipoenvio, estado, fechaorden, total) VALUES("+"'"
+                        +orden.getIdOrden()+"','"+orden.getIdCliente()+"','"+orden.getIdProducto()+ "','" + orden.getPrecioEnvio()+ "','" + orden.getTipoEnvio()+ "','"+orden.getEstado()+"','"+ new java.util.Date()+"','"+orden.getTotal()+"')";
             System.out.println("dml = " + dml);
             statement.executeUpdate(dml);
         } catch (SQLException throwables) {

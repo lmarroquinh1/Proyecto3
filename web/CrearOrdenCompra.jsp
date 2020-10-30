@@ -18,7 +18,8 @@
         
         <h1>Agregar Orden de compra</h1>
         <% 
-            String idCliente = request.getParameter("idCliente"); 
+            String idOrden = request.getParameter("idOrden");
+            String idCliente = request.getParameter("idCliente");
             String idProducto = request.getParameter("idProducto");
             String precioEnvio = request.getParameter("precioEnvio");
             String tipoEnvio = request.getParameter("tipoEnvio");
@@ -28,11 +29,15 @@
         %>
         <form action="CrearOrdenCompra.jsp" method="POST">
             <div class="form-group">
-              <label for="idCliente">Cliente: </label>
+              <label for="idOrden">Id Orden </label>
+              <input type="text" class="form-control" id="idOrden" name="idOrden" aria-describedby="emailHelp">              
+            </div>
+            <div class="form-group">
+              <label for="idCliente">Id Cliente: </label>
               <input type="text" class="form-control" id="idCliente" name="idCliente" aria-describedby="emailHelp">              
             </div>            
             <div class="form-group">
-              <label for="idProducto">Producto: </label>
+              <label for="idProducto">Id Producto: </label>
               <input type="text" class="form-control" id="idProducto" name="idProducto" aria-describedby="emailHelp">
             </div>
             <div class="form-group">
@@ -55,7 +60,7 @@
             }
               else{
                 InformacionDAO informacionDao = new InformacionDAO(); 
-                Orden orden = new Orden(Integer.parseInt(idCliente), Integer.parseInt(idProducto), Double.parseDouble(precioEnvio), tipoEnvio, estado);  
+                Orden orden = new Orden(Integer.parseInt(idOrden),Integer.parseInt(idCliente),Integer.parseInt(idProducto), Double.parseDouble(precioEnvio), tipoEnvio, estado);  
                 informacionDao.guardarOrden(orden); 
             %>
         

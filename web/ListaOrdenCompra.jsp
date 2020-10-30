@@ -20,9 +20,10 @@
         <table class="table table-striped">
             <thead class="thead-dark">
               <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Cliente</th>
-                <th scope="col">Producto</th>
+                <th scope="col">#</th>
+                <th scope="col">Id orden</th>
+                <th scope="col">Id Cliente</th>
+                <th scope="col">Id Producto</th>
                 <th scope="col">Precio envio</th>
                 <th scope="col">Tipo envio</th>
                 <th scope="col">Estado</th>
@@ -41,13 +42,14 @@
               %>
               <tr>
                 <th scope="row"><%=i%></th>
+                <td><%=orden.getIdOrden()%></td> 
                 <td><%=orden.getIdCliente()%></td> 
                 <td><%=orden.getIdProducto()%></td>
                 <td><%=orden.getPrecioEnvio()%></td>
                 <td><%=orden.getTipoEnvio()%></td>
                 <td><%=orden.getEstado()%></td>
                 <td><%=new java.util.Date()%></td> 
-                <td><%=orden.getPrecioEnvio()%></td>  
+                <td><%=orden.getTotal()%></td>
                 
                 <th>
                     <a href="EliminarDatos.jsp?dpi=<%=orden.getIdCliente()%>&tipoCliente=individual">
