@@ -24,6 +24,7 @@
                 <th scope="col">Apellido</th>
                 <th scope="col">Direccion</th>
                 <th scope="col">Dpi</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             
@@ -41,11 +42,18 @@
                 <td><%=individual.getApellido()%></td>
                 <td><%=individual.getDireccion()%></td>
                 <td><%=individual.getDpi()%></td>
+                <th>
+                    <a href="EliminarClienteIndividual.jsp?dpi=<%=individual.getDpi()%>">
+                    <img src="Images/IconoEliminar.jpg" width="30" height="30"/>
+                    </a>||
+                    <a href="EliminarClienteIndividual.jsp?dpi=<%=individual.getDpi()%>">
+                        <img src="Images/IconoEditar.png" width="30" height="30"/>
+                    </a>
+                </th>
               </tr>
-              <% 
+              <%
                }
               %>              
-            
             </table>
         <form action="MenuPrincipal.jsp">
           <button type="submit" class="btn btn-secondary">Regresar al menu</button>

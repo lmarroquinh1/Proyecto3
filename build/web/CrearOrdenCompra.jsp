@@ -3,7 +3,8 @@
     Created on : 27/10/2020, 04:03:19 PM
     Author     : Alvarado Montes
 --%>
-
+<%@page import="Modelo.Orden"%>
+<%@page import="utilerias.InformacionDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,6 +17,15 @@
 	link="#25B01A" vlink="#1A2CB0" alink="#E50A0A">
         
         <h1>Agregar Orden de compra</h1>
+        <% 
+            String idCliente = request.getParameter("idCliente"); 
+            String idProducto = request.getParameter("idProducto");
+            String precioEnvio = request.getParameter("precioEnvio");
+            String tipoEnvio = request.getParameter("tipoEnvio");
+            String estado = request.getParameter("estado");
+            if(idCliente==null && idProducto==null && precioEnvio==null && tipoEnvio==null && estado==null){ 
+            
+        %>
         <form action="CrearOrdenCompra.jsp" method="POST">
             <div class="form-group">
               <label for="idCliente">Cliente: </label>
@@ -41,12 +51,19 @@
             <button type="submit" class="btn btn-primary">Modificar</button>
             <button type="submit" class="btn btn-primary">Eliminar</button>
         </form>
+        <%
+            }
+              else{
+                InformacionDAO informacionDao = new InformacionDAO(); 
+                Orden orden = new Orden(Integer.parseInt(idCliente), Integer.parseInt(idProducto), Double.parseDouble(precioEnvio), tipoEnvio, estado);  
+                informacionDao.guardarOrden(orden); 
+            %>
         
-        //alerta alerta
         <div class="alert alert-success" role="alert">
-                La compra fue agregada correctamente<a href="ListaOrdenCompra.jsp" class="alert-link">Ver reporte de compra</a>.
+                La orden fue agregada correctamente<a href="ListaOrdenCompra.jsp" class="alert-link">Ver reporte de orden</a>.
             </div>
-        
+        <%
+         }%>
          <form action="MenuPrincipal.jsp">
           <button type="submit" class="btn btn-secondary">Regresar al Menu</button>
         </form>

@@ -3,7 +3,10 @@
     Created on : 27/10/2020, 04:10:28 PM
     Author     : Alvarado Montes
 --%>
-
+<%@page import="java.sql.Date"%>
+<%@page import="java.util.List"%>
+<%@page import="modelo.Orden"%> 
+<%@page import="utilerias.InformacionDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,7 +30,28 @@
                 <th scope="col">Total</th>
               </tr>
             </thead>
-            
+            <tbody>
+            <%
+              InformacionDAO informacionDao = new InformacionDAO(); 
+              List<Orden> ordenes=informacionDao.getDBOrden(); 
+              int i=0;
+              for( Orden orden : ordenes){  
+                i++;
+              %>
+              <tr>
+                <th scope="row"><%=i%></th>
+                <td><%=orden.getIdCliente()%></td> 
+                <td><%=orden.getIdProducto()%></td>
+                <td><%=orden.getPrecioEnvio()%></td>
+                <td><%=orden.getTipoEnvio()%></td>
+                <td><%=orden.getEstado()%></td>
+                <td><%=new java.util.Date()%></td> 
+                <td><%=orden.getPrecioEnvio()%></td>  
+              </tr>
+              <% 
+               }
+              %> 
+              </tbody>
             </table>
         <form action="MenuPrincipal.jsp">
           <button type="submit" class="btn btn-secondary">Regresar al menu</button>

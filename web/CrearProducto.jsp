@@ -3,7 +3,7 @@
     Created on : 27/10/2020, 01:50:23 PM
     Author     : Alvarado Montes
 --%>
-<%@page import="modelo.Producto"%> 
+<%@page import="Modelo.Producto"%> 
 <%@page import="utilerias.InformacionDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

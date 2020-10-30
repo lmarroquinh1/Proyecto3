@@ -21,15 +21,15 @@
             <form action="Controlador">    
                 <div class="form-group text-center">
                     <img src="Images/login1.PNG" height="80" width="80" />
-                    <p><strong>Bienvenidos</strong></p>
+                    <p><strong>Bienvenido</strong></p>
                 </div>
                 <div class="form-group">
-                    <label>Nombres:</label>
-                    <input class="form-control" type="text" name="txtnom" placeholder="Ingrese nombres">
+                    <label>Nombre:</label>
+                    <input class="form-control" type="text" name="txtnom" placeholder="Ingrese nombre">
                 </div>
                 <div class="form-group">
-                    <label>Email:</label>
-                    <input type="email" name="txtpassword" placeholder="example@gmail.com" class="form-control" >
+                    <label>Contraseña:</label>
+                    <input type="password" name="txtpassword" placeholder="Ingrese contraseña" class="form-control" >
                 </div>
                 <input class="btn btn-danger btn-block" type="submit" name="action" value="ingresar">
                 

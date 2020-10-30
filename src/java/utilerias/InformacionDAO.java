@@ -1,16 +1,5 @@
 package utilerias;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Alvarado Montes
- */
-
 import conexion.ConexionDB;
 import Modelo.Individual1;
 import java.sql.ResultSet;
@@ -23,6 +12,47 @@ import Modelo.Producto;
 
 public class InformacionDAO {
     
+    /***
+      * Guarda un cliente de tipo individual en la tabla individuales
+      * @param individual variable de tipo individual que contiene la informacion a ser ingresada a la base de datos
+      */     
+                
+      public void guardarIndividual(Individual1 individual){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "INSERT INTO individuales(nombre, apellido, direccion, dpi) VALUES("+
+            "'"+individual.getNombre()+"','"+individual.getApellido()+ "','" + individual.getDireccion()+ "','" + individual.getDpi()+"')";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+      
+      
+      
+      /***
+      * elimina un cliente de tipo individual de la tabla individuales
+      * @param individual variable de tipo individual que contiene la informacion a ser ingresada a la base de datos
+      */     
+                
+      public void eliminarIndividual(String dpi){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "Delete from individuales where dpi='"+dpi+"'";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    
+    
+    
+    /***
+     * Hace una consulta en la tabla individuales
+     * @return retorna una lista con todos los clientes individuales encontrados
+     */
      public List<Individual1> getDBIndividual(){
         List<Individual1> individuales = new ArrayList<Individual1>();
         try {
@@ -40,21 +70,6 @@ public class InformacionDAO {
     }
      
      
-            
-            
-     
-     
-      public void guardarIndividual(Individual1 individual){
-        try {
-            Statement statement = ConexionDB.conn.createStatement();
-            String dml = "INSERT INTO individuales(nombre, apellido, direccion, dpi) VALUES("+
-            "'"+individual.getNombre()+"','"+individual.getApellido()+ "','" + individual.getDireccion()+ "','" + individual.getDpi()+"')";
-            System.out.println("dml = " + dml);
-            statement.executeUpdate(dml);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
      
       
       
@@ -108,7 +123,7 @@ public class InformacionDAO {
         try {
             Statement statement = ConexionDB.conn.createStatement();
             String dml = "INSERT INTO productos(codigo, nombreProducto, cantidad, precio) VALUES("+
-                        producto.getCodigo()+ ",'" + producto.getNombreProducto()+ "')" + producto.getCantidad()+ ",´" + producto.getPrecio()+ ",´" ;
+            "'"+producto.getCodigo()+"','"+producto.getNombreProducto()+"','"+producto.getCantidad()+"','"+producto.getPrecio()+"')";
             System.out.println("dml = " + dml);
             statement.executeUpdate(dml);
         } catch (SQLException throwables) {

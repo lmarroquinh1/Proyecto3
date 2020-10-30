@@ -15,7 +15,7 @@
     </head>
     <body bgcolor="#893546" text="#FFFFFF"
 	link="#25B01A" vlink="#1A2CB0" alink="#E50A0A">
-        <h1>Agregar nuevos clientes</h1>
+        <h1>Clientes</h1>
         <% 
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
@@ -26,6 +26,15 @@
         %>
         
         <form action="CrearClienteIndividual.jsp" method="POST">
+            <center><a href="CrearClienteIndividual.jsp">Agregar cliente individual</a></center><br>
+            <center><a href="CrearClienteIndividual.jsp">Eliminar cliente individual</a></center><br>
+            <center><a href="CrearClienteIndividual.jsp">Actualizar cliente individual</a></center><br>
+            <center><a href="CrearClienteEmpresa.jsp">Agregar cliente empresa</a></center><br>
+            <center><a href="CrearClienteEmpresa.jsp">Eliminar cliente empresa</a></center><br>
+            <center><a href="CrearClienteEmpresa.jsp">Actualizar cliente empresa</a></center><br>
+            <center><a href="CrearClienteEmpresa.jsp">Ver registro de clientes</a></center><br>
+                       
+            
             <div class="form-group">
               <label for="nombre">Nombre: </label>
               <input type="text" class="form-control" id="nombre" name="nombre" aria-describedby="emailHelp">              
@@ -42,13 +51,25 @@
               <label for="dpi">Dpi: </label>
               <input type="text" class="form-control" id="dpi" name="dpi" aria-describedby="emailHelp">
             </div>
-            <button type="submit" class="btn btn-primary">Agregar</button>
-            <button type="submit" class="btn btn-primary">Modificar</button>
-            <button type="submit" class="btn btn-primary">Borrar</button>
+            <button type="submit" class="btn btn-primary" name="action" value="agregar">Agregar</button>
+            <button type="submit" class="btn btn-primary" name="action" value="modificar">Modificar</button>
+            <button type="submit" class="btn btn-primary" name="action" value="borrar">Borrar</button>
         </form>
         <%
             }
               else{
+
+String accion = request.getParameter("action");
+        if (accion.equals("modificar")){
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+
+
+
+
+
+
+
                 InformacionDAO informacionDao = new InformacionDAO(); 
                 Individual1 individual = new Individual1(nombre, apellido, direccion, dpi);
                 informacionDao.guardarIndividual(individual);
