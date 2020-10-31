@@ -16,7 +16,7 @@
     <body bgcolor="#893546" text="#FFFFFF"
 	link="#25B01A" vlink="#1A2CB0" alink="#E50A0A">
         
-        <h1>Agregar nuevos clientes</h1>
+        <h1>Agregar Cliente de Tipo Empresa</h1>
         <% 
             String nombre = request.getParameter("nombre"); 
             String apellido = request.getParameter("apellido");
@@ -48,8 +48,6 @@
               <input type="text" class="form-control" id="descuento" name="descuento" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Agregar</button>
-            <button type="submit" class="btn btn-primary">Modificar</button>
-            <button type="submit" class="btn btn-primary">Eliminar</button>
         </form>
         <%
             }

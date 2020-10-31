@@ -32,14 +32,19 @@
                   String apellido=request.getParameter("apellido");    
                   informacionDao.eliminarEmpresa(nombre, apellido);
                   request.getRequestDispatcher("ListaClienteEmpresa.jsp").forward(request, response);
-      break; // break es opcional
+      break;
       
               case "producto" :
               String codigoProducto=request.getParameter("codigoProducto");    
                   informacionDao.eliminarProducto(codigoProducto);
                   request.getRequestDispatcher("ListaProducto.jsp").forward(request, response);
-      break; // break es opcional
+      break;
       
+                    case "ordenCompra" :
+              String idOrden=request.getParameter("idOrden");    
+                  informacionDao.eliminarOrdenCompra(idOrden);
+                  request.getRequestDispatcher("ListaOrdenCompra.jsp").forward(request, response);
+      break;
       
               }//fin del switch
               

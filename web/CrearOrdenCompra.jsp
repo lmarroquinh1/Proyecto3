@@ -53,8 +53,6 @@
               <input type="text" class="form-control" id="estado" name="estado" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Agregar</button>
-            <button type="submit" class="btn btn-primary">Modificar</button>
-            <button type="submit" class="btn btn-primary">Eliminar</button>
         </form>
         <%
             }

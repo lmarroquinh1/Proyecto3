@@ -16,7 +16,7 @@
     <body bgcolor="#893546" text="#FFFFFF"
 	link="#25B01A" vlink="#1A2CB0" alink="#E50A0A">
         
-        <h1>Agregar nuevos productos</h1>
+        <h1>Agregar nuevo producto</h1>
         <% 
             String codigo = request.getParameter("codigo");
             String nombreProducto = request.getParameter("nombreProducto");
@@ -43,8 +43,6 @@
               <input type="text" class="form-control" id="precio" name="precio" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary">Agregar</button>
-            <button type="submit" class="btn btn-primary">Modificar</button>
-            <button type="submit" class="btn btn-primary">Eliminar</button>
         </form>
         <%
             }

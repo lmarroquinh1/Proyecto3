@@ -15,7 +15,7 @@
     </head>
     <body bgcolor="#893546" text="#FFFFFF"
 	link="#25B01A" vlink="#1A2CB0" alink="#E50A0A">
-        <h1>Clientes</h1>
+        <h1>Agregar Cliente Individual</h1>
         <% 
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
@@ -26,14 +26,8 @@
         %>
         
         <form action="CrearClienteIndividual.jsp" method="POST">
-            <center><a href="CrearClienteIndividual.jsp">Agregar cliente individual</a></center><br>
-            <center><a href="CrearClienteIndividual.jsp">Eliminar cliente individual</a></center><br>
-            <center><a href="CrearClienteIndividual.jsp">Actualizar cliente individual</a></center><br>
-            <center><a href="CrearClienteEmpresa.jsp">Agregar cliente empresa</a></center><br>
-            <center><a href="CrearClienteEmpresa.jsp">Eliminar cliente empresa</a></center><br>
-            <center><a href="CrearClienteEmpresa.jsp">Actualizar cliente empresa</a></center><br>
-            <center><a href="CrearClienteEmpresa.jsp">Ver registro de clientes</a></center><br>
-                       
+            
+                      
             
             <div class="form-group">
               <label for="nombre">Nombre: </label>
@@ -52,8 +46,6 @@
               <input type="text" class="form-control" id="dpi" name="dpi" aria-describedby="emailHelp">
             </div>
             <button type="submit" class="btn btn-primary" name="action" value="agregar">Agregar</button>
-            <button type="submit" class="btn btn-primary" name="action" value="modificar">Modificar</button>
-            <button type="submit" class="btn btn-primary" name="action" value="borrar">Borrar</button>
         </form>
         <%
             }

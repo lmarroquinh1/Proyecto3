@@ -34,6 +34,7 @@ public class Orden {
         this.precioEnvio = precioEnvio;
         this.tipoEnvio = tipoEnvio;
         this.estado = estado;
+        //this.fechaOrden = fechaOrden;
         this.total = 0.0;
     }
 

@@ -52,11 +52,8 @@
                 <td><%=orden.getTotal()%></td>
                 
                 <th>
-                    <a href="EliminarDatos.jsp?dpi=<%=orden.getIdCliente()%>&tipoCliente=individual">
+                    <a href="EliminarDatos.jsp?idOrden=<%=orden.getIdOrden()%>&tipoCliente=ordenCompra">
                     <img src="Images/IconoEliminar.jpg" width="30" height="30"/>
-                    </a>||
-                    <a href="EliminarClienteIndividual.jsp?dpi=<%=orden.getIdCliente()%>?tipoCliente="<%="individual"%>>
-                        <img src="Images/IconoEditar.png" width="30" height="30"/>
                     </a>
                 </th>
                 

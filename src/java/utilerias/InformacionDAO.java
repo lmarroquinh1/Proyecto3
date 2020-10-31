@@ -10,6 +10,7 @@ import java.util.List;
 import Modelo.Empresa1;
 import Modelo.Orden;
 import Modelo.Producto;
+import java.text.SimpleDateFormat;
 
 public class InformacionDAO {
     
@@ -176,6 +177,7 @@ public class InformacionDAO {
    //Metodo agregar o guardar orden de compra
     public void guardarOrden(Orden orden){
         try {
+            
             Statement statement = ConexionDB.conn.createStatement();
             String dml = "INSERT INTO ordenes(idorden, idcliente, idproducto, precioenvio, tipoenvio, estado, fechaorden, total) VALUES("+"'"
                         +orden.getIdOrden()+"','"+orden.getIdCliente()+"','"+orden.getIdProducto()+ "','" + orden.getPrecioEnvio()+ "','" + orden.getTipoEnvio()+ "','"+orden.getEstado()+"','"+ new java.util.Date()+"','"+orden.getTotal()+"')";
@@ -186,6 +188,17 @@ public class InformacionDAO {
         }
     }
   
+    
+    public void eliminarOrdenCompra(String idOrden){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "Delete from ordenes where idorden='"+idOrden+"'";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
   
   
   
