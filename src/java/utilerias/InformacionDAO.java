@@ -32,6 +32,18 @@ public class InformacionDAO {
     }
       
       
+      public void actualizarIndividual(Individual1 individual){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "UPDATE individuales SET nombre ='"+individual.getNombre()+"',"+"apellido ='"+individual.getApellido()+"',"+"direccion ='"+individual.getDireccion()+"' where dpi='"+individual.getDpi()+"'";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+      
+      
       
       /***
       * elimina un cliente de tipo individual de la tabla individuales
@@ -62,8 +74,9 @@ public class InformacionDAO {
             throwables.printStackTrace();
         }
     }
+     
       
-    
+     
     
     /***
      * Hace una consulta en la tabla individuales
@@ -119,6 +132,18 @@ public class InformacionDAO {
         }
     }
     
+     
+            public void actualizarEmpresa(Empresa1 Empresa){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "UPDATE empresas SET nombre ='"+Empresa.getNombre()+"',"+"apellido ='"+Empresa.getApellido()+"',"+"direccion ='"+Empresa.getDireccion()+"',"+"contacto ='"+Empresa.getContacto()+"',"+"descuento ='"+Empresa.getDescuento()+"' where nombre='"+Empresa.getNombre()+"' and apellido='"+Empresa.getApellido()+"'";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    
    public List<Producto> getDBProducto(){ 
          List<Producto> productos = new ArrayList<Producto>();
          try {
@@ -157,6 +182,18 @@ public class InformacionDAO {
             throwables.printStackTrace();
         }
     }
+  
+  public void actualizarProducto(Producto producto){
+        try {
+            Statement statement = ConexionDB.conn.createStatement();
+            String dml = "UPDATE productos SET nombreproducto='"+producto.getNombreProducto()+"',"+"cantidad ='"+producto.getCantidad()+"',"+"precio ='"+producto.getPrecio()+"' where codigo='"+producto.getCodigo()+"'";
+            System.out.println("dml = " + dml);
+            statement.executeUpdate(dml);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+  
   
   
   

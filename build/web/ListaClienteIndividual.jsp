@@ -46,7 +46,7 @@
                     <a href="EliminarDatos.jsp?dpi=<%=individual.getDpi()%>&tipoCliente=individual">
                     <img src="Images/IconoEliminar.jpg" width="30" height="30"/>
                     </a>||
-                    <a href="EliminarClienteIndividual.jsp?dpi=<%=individual.getDpi()%>?tipoCliente="<%="individual"%>>
+                    <a href="EditarClienteIndividual.jsp?nombre=<%=individual.getNombre()%>&apellido=<%=individual.getApellido()%>&direccion=<%=individual.getDireccion()%>&dpi=<%=individual.getDpi()%>">
                         <img src="Images/IconoEditar.png" width="30" height="30"/>
                     </a>
                 </th>

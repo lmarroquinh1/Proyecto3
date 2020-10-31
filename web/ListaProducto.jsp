@@ -45,7 +45,7 @@
                     <a href="EliminarDatos.jsp?codigoProducto=<%=producto.getCodigo()%>&tipoCliente=producto">
                     <img src="Images/IconoEliminar.jpg" width="30" height="30"/>
                     </a>||
-                    <a href="EliminarClienteIndividual.jsp?dpi=<%=producto.getCodigo()%>?tipoCliente="<%="individual"%>>
+                    <a href="EditarProducto.jsp?codigo=<%=producto.getCodigo()%>&nombreProducto=<%=producto.getNombreProducto()%>&cantidad=<%=producto.getCantidad()%>&precio=<%=producto.getPrecio()%>">
                         <img src="Images/IconoEditar.png" width="30" height="30"/>
                     </a>
                 </th>

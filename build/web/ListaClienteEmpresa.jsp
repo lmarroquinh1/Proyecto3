@@ -46,7 +46,7 @@
                     <a href="EliminarDatos.jsp?nombre=<%=empresa.getNombre()%>&apellido=<%=empresa.getApellido()%>&tipoCliente=empresa">
                     <img src="Images/IconoEliminar.jpg" width="30" height="30"/>
                     </a>||
-                    <a href="EliminarClienteIndividual.jsp?dpi=<%=empresa.getNombre()%>?tipoCliente="<%="individual"%>>
+                    <a href="EditarClienteEmpresa.jsp?nombre=<%=empresa.getNombre()%>&apellido=<%=empresa.getApellido()%>&direccion=<%=empresa.getDireccion()%>&contacto=<%=empresa.getContacto()%>&descuento=<%=empresa.getDescuento()%>">
                         <img src="Images/IconoEditar.png" width="30" height="30"/>
                     </a>
                 </th>
